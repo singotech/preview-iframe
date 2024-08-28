@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Iframe</title>
+</head>
+<body>
+    <center><h1>Dynamic Iframe Example</h1></center>
+    <iframe id="dynamicIframe" style="height:90vh;width:90vw;display:block;margin:0 auto;border:none;"></iframe>
+
+    <script>
+        // Function to get query parameters by name
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the 'src' parameter from the URL
+        var iframeSrc = getQueryParam('src');
+
+        // Set the 'src' of the iframe
+        if (iframeSrc) {
+            document.getElementById('dynamicIframe').src = iframeSrc;
+        } else {
+            document.getElementById('dynamicIframe').src = 'about:blank'; // Fallback if 'src' is not provided
+        }
+    </script>
+</body>
+</html>
